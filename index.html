@@ -1,13 +1,92 @@
-<!doctype html>
-<html lang="en">
+
+
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>民宗app下载</title>
+<title>OTA - Gem Soft</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="app.css" >
 </head>
-<body>
-<a href="itms-services:///?action=download-manifess&url=https://raw.githubusercontent.com/haungjq/mz/master/iPhone.plist">点击下载</a>
+<body onload = "jump('itms-services:///?action=download-manifest&url=https://raw.githubusercontent.com/haungjq/mz/master/iPhone.plist');">
+<div class="title">极OA for iPhone</div>
+<hr>
+公司OA
+<hr>
+<a href="itms-services:///?action=download-manifest&url=https://raw.githubusercontent.com/haungjq/mz/master/iPhone.plist">
+    <div class="install">
+        <div class="icon"><img src="pic/icon.png"/></div>
+        <h1>极OA for iPhone</h1>
+        <p>对应服务器版本：6.3.0</p>
+        <p>苹果证书过期日期：2018年5月10日</p>
+        <p>内部辅助办公系统 iPhone版本，需要IOS7.0以上版本支持。请在Safari浏览器中打开</p>
+        <p>最后更新时间：2017/6/22 10:00</p>
+    </div>
+</a>
+<hr>
+测试环境
+<hr>
+<a href="itms-services:///?action=download-manifest&url=https://git.gem-soft.com/zhengjianchu/projectPlist/raw/master/iphonetest.plist">
+    <div class="install">
+        <div class="icon"><img src="pic/icon.png"/></div>
+        <h1>极OA for iPhone</h1>
+        <p>软件大小：9.9MB</p>
+		<p>对应服务器版本：6.5.3</p>
+		<p>包版本：1.3.2</p>
+		<p>苹果证书过期日期：2018年5月10日</p>
+        <p>内部辅助办公系统 iPhone 测试版本，需要IOS7.0以上版本支持。请在Safari浏览器中打开</p>
+		<p>最后更新时间：2018/1/30 16:00</p>
+    </div>
+</a>
+
+<div id="shade" style="display: none" onclick="hideMask()">
+    <div class="weixinShareNoOpen"><p><img src="iPhoneWeixinShareNoOpen.png"></p></div>
+    <div class="NoOpen"></div>
+</div>
+
 </body>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	//自动跳转
+function jump(url) {
+    if (!isMask()) {//仅在可下载的浏览器上弹出下载提示
+        //谷歌浏览器延迟2秒自动启动下载
+        var delayTime = navigator.userAgent.toLowerCase().match(/chrome/) ? 2000 : 0;
+        setTimeout(redirect(url), delayTime);
+    }
+}
+function redirect(url) {
+    if (url != 'noredirect')
+    {
+        window.location.href = url;//自动下载
+    }
+}
+function maskDeal() {
+    if (isMask()) {
+        showMask();
+    }
+}
+
+//判断是否产生遮罩
+function isMask() {
+    return checkBrs('MicroMessenger') ||  checkBrs('Weibo') || checkBrs('TencentMicroBlogiPhone');
+}
+//显示遮罩层
+function showMask() {
+    document.getElementById('shade').style.display = "block";
+}
+//隐藏遮罩
+function hideMask() {
+    document.getElementById('shade').style.display = "none";
+}
+/**
+ * 通过浏览器标识判断是否是指定浏览器
+ * @param {type} browserIdtfy 浏览器标识
+ * @returns //是否是该浏览器
+ */
+function checkBrs(browserIdtfy) {
+    return navigator.userAgent.indexOf(browserIdtfy) != -1 ? 1 : 0;
+}
+//-->
+</SCRIPT>
 </html>
